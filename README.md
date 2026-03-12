@@ -4,28 +4,25 @@ Natural Language to SQL chatbot with 5 databases, LangChain, Gemini Orchestrator
 
 ---
 
-## 🏗️ Architecture
+## 🏗️ New Architecture (Plan & Execute)
 
 ```
 User Question
-     │
-     ▼
-[Step 1] LLM identifies: which DB? + generates SQL
-     │
-     ▼
-[Step 2] Execute SQL on SQLite database
-     │
-  ┌──┴──────────────────────┐
-  │ Success?                │
-  ▼ YES                     ▼ NO
-Return results        [Step 3] LLM sees error → fixes SQL
-                             │
-                          Execute SQL again
-                          ┌──┴──────────────────┐
-                          │ Success?            │
-                          ▼ YES                 ▼ NO
-                     Return results       "Sorry, we are getting
-                                           some issues."
+    |
+    v
+Orchestrator (Gemini) -> Step-by-step Plan
+    |
+    v
+For each step:
+  - Coder (GPT-4o-mini) generates SQL
+  - Execute on selected SQLite DB
+  - Revalidate on error (Checker)
+    |
+    v
+Optional: Plotly Dashboard Agent (if PLOTLY_AGENT=on)
+    |
+    v
+Synthesize final answer + return steps (+ chart if enabled)
 ```
 
 ---
@@ -47,7 +44,7 @@ Return results        [Step 3] LLM sees error → fixes SQL
 ### 1. Backend
 
 ```bash
-cd backend
+cd SQL_BOT
 
 # Install dependencies
 pip install -r requirements.txt
@@ -75,7 +72,7 @@ Backend runs at: **http://localhost:8000**
 
 ```bash
 # Option A: React (Vite)
-cd frontend -vite
+cd frontend-vite
 npm install
 npm run dev
 
