@@ -1,6 +1,6 @@
 # ⚡ SQL Mind — AI Chatbot (NL → SQL)
 
-Natural Language to SQL chatbot with 5 databases, LangChain, Gemini Orchestrator + OpenAI Coder, and a revalidation loop.
+Natural Language to SQL chatbot with 5 databases, LangChain, Gemini Orchestrator + OpenAI Coder, and a revalidation loop .Disclaimer Voice Section is their But Not Added.
 
 ---
 
@@ -8,6 +8,10 @@ Natural Language to SQL chatbot with 5 databases, LangChain, Gemini Orchestrator
 
 ```
 User Question
+<<<<<<< HEAD
+=======
+    |
+>>>>>>> 6250b9cbb10661c28f47a404dc0c0b6a3cbc2ded
     v
 Orchestrator (Gemini) -> Step-by-step Plan
     |
