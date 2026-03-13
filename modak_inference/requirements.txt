@@ -1,0 +1,16 @@
+# requirements.txt — local dev / CI
+# The Modal image installs its own deps inside the container.
+# These are for local testing (modal serve / modal run).
+
+modal>=0.67.0
+fastapi>=0.111.0
+uvicorn[standard]>=0.30.0
+pydantic>=2.0.0
+openai>=1.35.0
+python-dotenv>=1.0.0
+
+# Only needed if running the FastAPI server locally (without Modal)
+vllm>=0.8.0           # not required locally — Modal handles this
+torch>=2.3.0          # same
+transformers>=4.47.0
+huggingface-hub>=0.25.0
